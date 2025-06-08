@@ -1467,20 +1467,14 @@ function openLink(value) {
         return;
     }
     lastExecutionTime = currentTime;
-    const baseUrl = "https://userali.ir/";
+    const baseUrl = ".userali.ir";
     let url;
     switch (value) {
         case "Telegram":
-            url = `${baseUrl}Telegram`;
-            break;
         case "Discord":
-            url = `${baseUrl}Discord`;
-            break;
         case "Twitter":
-            url = `${baseUrl}Twitter`;
-            break;
         case "Instagram":
-            url = `${baseUrl}Instagram`;
+            url = `https://${value.toLowerCase()}${baseUrl}`;
             break;
         case "no-open-link":
             alert('♻️');
@@ -1489,7 +1483,7 @@ function openLink(value) {
             alert('❌');
             return;
     }
-    if (url.startsWith(baseUrl)) {
+    if (url) {
         window.open(url, "_blank", "noopener,noreferrer,nofollow");
     } else {
         console.error("⚠️");
